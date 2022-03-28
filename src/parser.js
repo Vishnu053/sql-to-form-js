@@ -351,3 +351,75 @@ function parseSqlSyntax(query) {
         case ('<<EOF>>'): return 'EOF'
     }
 }
+class singleControl{
+    constructor(type, value,validations,name,label,placeholder,styles,className){
+        this.type = type
+        this.value = value
+        this.validations = validations
+        this.name = name
+        this.label = label
+        this.placeholder = placeholder
+        this.styles = styles
+        this.className = className
+    }
+}
+function startParse(query){
+    var qTokens={
+        create:"",
+        formName:"",
+        request:{
+            method:"",
+            url:"",
+            headers:{}
+        },
+        controls:[]
+
+    }
+    var tokens=query.split(" ")
+    var i=0
+    while(i<tokens.length){
+        var token=tokens[i]
+        if(token=="CREATE"){
+            qTokens.create=tokens[i+1]
+            i+=2
+        }else if(token=="FORM"){
+            qTokens.formName=tokens[i+1]
+            i+=2
+        }else if(token=="WITH"){
+            i+=1
+        }else if(token=="REQUEST"){
+            qTokens.request.method=tokens[i+1]
+            if(tokens[i+1]=="POST:"){
+                qTokens.request.url=tokens[i+1]
+                i+=3
+            }else if(tokens[i+1]=="GET:"){
+                qTokens.request.url=tokens[i+1]
+                i+=3
+            }else if(tokens[i+1]=="PUT:"){
+                qTokens.request.url=tokens[i+1]
+                i+=3
+            }else if(tokens[i+1]=="DELETE:"){
+                qTokens.request.url=tokens[i+1]
+                i+=3
+            }
+            // qTokens.request.url=tokens[i+2]
+            // i+=3
+        }else if(token=="HEADERS"){
+            i+=1
+            while(i<tokens.length){
+                if(tokens[i]=="header"){
+                    qTokens.request.headers[tokens[i+1]]=tokens[i+2]
+                    i+=3
+                }else{
+                    break
+                }
+            }
+        }else{
+            i+=1
+        }
+        
+    }
+    console.log(qTokens)
+    return qTokens
+}
+// startParse("CREATE FORM mailetter WITH REQUEST POST:https://mailletter.api")
