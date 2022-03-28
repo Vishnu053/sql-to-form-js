@@ -15,7 +15,7 @@
 > Along with displaying the form, you can also export it to HTML, which speeds up front-end development.
 
 ## Example:
-<code>Create form mailetter<br>
+<pre>Create form mailetter<br>
 &nbsp;&nbsp;with request post:https://mailletter.api<br>
 &nbsp;&nbsp;with headers: {}<br>
 &nbsp;&nbsp;with validationClassName:"validatemychildren"<br>
@@ -38,4 +38,4 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with tooltip:'click here to submit'<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with disableIfFormInvalid:true<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;with class:['btn btn-primary']<br>
-&nbsp;&nbsp;end controls;</code>
+&nbsp;&nbsp;end controls;</pre>
