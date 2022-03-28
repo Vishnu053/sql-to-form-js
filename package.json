@@ -1,0 +1,12 @@
+{
+  "name": "sql-to-form-js",
+  "version": "1.0.0",
+  "description": "sql-to-form-js is a js library to create HTML forms, complete with validations(uses my nativeValidate.js library, so no third-party dependencies), from SQL queries.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
